@@ -7,3 +7,6 @@
 <b>The goal of that is to have a kind of persistent data</b>, which 
 1) should be persisted (in contrary to docker container live circle) 
 2) and could be considered as a Volume in term of Docker containers.
+
+<h4>To build a docker image</h4> 
+<i>docker image build -t kiryldrabysheuski/hello-docker-world .</i>
