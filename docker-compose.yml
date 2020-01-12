@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  spring-boot:
+    image: kiryldrabysheuski/hello-docker-world
+    ports:
+      - "8080:8080"
+    networks:
+      - dks_sam_cloud_network
+    depends_on:
+      - mysql
+ 
+  mysql:
+    image: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=pass
+      - MYSQL_DATABASE=sam_cloud
+    volumes:
+      - "dks_sam_cloud_mysql:/var/lib/mysql"
+    networks:
+      - dks_sam_cloud_network
+
+networks:
+  dks_sam_cloud_network:
+volumes:
+  dks_sam_cloud_mysql:
