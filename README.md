@@ -14,4 +14,4 @@ Using <b>docker-compose</b> demonstrates working two containers 'web spring boot
 within single private network where only web app exposes its port and database is invisible outside of network.
 MySql database uses volume.
 
-<h3>See docker repository: https://hub.docker.com/r/kiryldrabysheuski/hello-docker-world </h3>
+<h3>See docker repository: https://hub.docker.com/repository/docker/kiryldrabysheuski/hello-docker-world </h3>
