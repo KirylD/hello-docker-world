@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.Date;
 
 @RestController
@@ -21,17 +23,23 @@ public class MainController {
         this.httpRequestRepository = httpRequestRepository;
     }
 
+    @GetMapping("")
+    public String helloWorld() throws UnknownHostException {
+        logger.info("helloWorld requested.");
+        return "Hello from " + InetAddress.getLocalHost().getHostName();
+    }
+
     // get http method to simplify testing
-    @GetMapping(path = {"/", "/request"})
+    @GetMapping(path = {"/request"})
     public HttpRequest logRequest() {
         Date requestDate = new Date(System.currentTimeMillis());
-        logger.debug("Request has been made at {}.", requestDate);
+        logger.info("Request has been made at {}.", requestDate);
 
         HttpRequest httpRequest = new HttpRequest();
         httpRequest.setRequestDate(requestDate);
 
         HttpRequest savedHttpRequest = httpRequestRepository.save(httpRequest);
-        logger.debug("Saved entity is {}.", savedHttpRequest);
+        logger.info("Saved entity is {}.", savedHttpRequest);
 
         return savedHttpRequest;
     }
@@ -39,7 +47,7 @@ public class MainController {
     @GetMapping(path = "/all")
     public Iterable<HttpRequest> getAllHttpRequests() {
         Iterable<HttpRequest> all = httpRequestRepository.findAll();
-        logger.debug("Retrieved all 'HttpRequest {}.", all);
+        logger.info("Retrieved all 'HttpRequest {}.", all);
         return all;
     }
 
