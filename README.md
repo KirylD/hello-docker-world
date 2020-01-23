@@ -1,11 +1,12 @@
 ﻿# hello-docker-world
 
-
 <h3>22.01.2020: Configure kubernetes in a declarative way using '.yaml' files.</h3>
-1) mysql-pv.yaml is responsible to create a PersistentVolume within the PersistentVolumeClaim
-2) mysql_deployment.yaml is in charge of deploying mysql connected to previously create PersistentVolume
-3) spring_boot.yaml is to deploy exposed 'spring-boot' app connected to 'mysql' database,
- which is reachable only within the pod.
+<ol>
+ <li>mysql-pv.yaml is responsible to create a PersistentVolume within the PersistentVolumeClaim</li>
+ <li>mysql_deployment.yaml is in charge of deploying mysql connected to previously create PersistentVolume</li>
+ <li>spring_boot.yaml is to deploy exposed 'spring-boot' app connected to 'mysql' database,
+     which is reachable only within the pod.</li>
+</ol>
 <hr>
 
 <b>The <i>web spring-boot app</i> in conjunction with <i>MySql database</i> is capable to</b>
